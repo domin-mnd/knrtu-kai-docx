@@ -1,0 +1,13 @@
+# Dist only
+src
+public
+tests
+
+# Configs
+vite.config.ts
+tsconfig.json
+biome.json
+.prettierignore
+
+# Markdown
+CONTRIBUTING.md
