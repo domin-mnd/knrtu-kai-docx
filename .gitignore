@@ -1,5 +1,6 @@
 # Build folder
 dist
+output
 
 # Dependency directories
 node_modules

@@ -1,42 +1,54 @@
 {
-  "name": "[package]",
+  "name": "knrtu-kai-docx",
   "version": "0.0.1",
-  "description": "This repository is a template for library.",
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
   "scripts": {
     "lint": "biome lint . && biome format . && prettier --check .",
     "format": "biome format --write . && prettier --write .",
-    "build": "tsup src/index.ts --format=esm,cjs --dts --minify",
-    "build-fast": "tsup src/index.ts --format=esm,cjs --no-dts --minify",
-    "dev": "pnpm build-fast --watch",
+    "start": "node dist/index.js",
+    "build": "pnpm build:bundle && pnpm build:exe",
+    "build:bundle": "esbuild ./src/ --bundle --platform=node --outfile=dist/index.js",
+    "build:exe": "pkg -t node18-win,node18-linux dist/index.js --out-path dist/pkg/",
+    "dev": "pnpm build:bundle --watch",
     "prepack": "pnpm build",
     "test": "vitest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/domin-mnd/[package].git"
+    "url": "git+https://github.com/domin-mnd/knrtu-kai-docx.git"
   },
-  "keywords": [],
+  "keywords": [
+    "docx",
+    "markdown"
+  ],
   "author": "domin-mnd",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/domin-mnd/[package]/issues"
+    "url": "https://github.com/domin-mnd/knrtu-kai-docx/issues"
   },
   "engines": {
-    "node": ">=12.20.0"
+    "node": ">=18"
   },
-  "homepage": "https://github.com/domin-mnd/[package]#readme",
+  "homepage": "https://github.com/domin-mnd/knrtu-kai-docx#readme",
   "devDependencies": {
     "@biomejs/biome": "^1.5.3",
     "@domin-mnd/config": "^0.0.3",
+    "@types/mdast": "^4.0.3",
     "@types/node": "^20.11.20",
     "@vitest/coverage-v8": "^1.3.1",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.20.1",
+    "pkg": "^5.8.1",
     "prettier": "^3.2.5",
-    "tsup": "^8.0.2",
     "typescript": "^5.3.3",
     "vitest": "^1.3.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "docx": "^8.5.0",
+    "image-meta": "^0.2.0",
+    "remark-frontmatter": "^5.0.0",
+    "remark-parse": "^11.0.0",
+    "unified": "^11.0.4",
+    "yaml": "^2.4.1"
+  }
 }
