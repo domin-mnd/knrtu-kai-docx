@@ -291,5 +291,13 @@ export function parse(tree: Root): DOCXDocument {
     xmlElements.unshift(
       ...LabTitlePage(parseOptions(titlePageOptions)),
     );
-  return Document(xmlElements);
+
+  if (!titlePageOptions.студент) return Document(xmlElements);
+
+  const student = parseFullname(titlePageOptions.студент),
+    author = `${student.first} ${student.last}`;
+  return Document(xmlElements, {
+    creator: author,
+    lastModifiedBy: author,
+  });
 }

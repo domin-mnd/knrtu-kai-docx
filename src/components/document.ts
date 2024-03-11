@@ -8,11 +8,16 @@ import {
   Paragraph,
   TextRun,
 } from "docx";
+import type { IPropertiesOptions } from "docx/build/file/core-properties";
 import type { FileChild } from "docx/build/file/file-child";
 
-export const Document = (children: FileChild[]) =>
+export const Document = (
+  children: FileChild[],
+  documentOptions?: Partial<IPropertiesOptions>,
+) =>
   new DOCXDocument({
     numbering,
+    ...documentOptions,
     sections: [
       {
         properties: {
