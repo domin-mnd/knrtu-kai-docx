@@ -8,3 +8,6 @@
 
 # Lock
 pnpm-lock.yaml
+
+# Examples
+tests/examples/**/*.md
