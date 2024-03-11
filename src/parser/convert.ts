@@ -9,7 +9,7 @@ import { parse } from "@/parser/markdown";
 import { processor } from "@/parser/processor";
 import { Packer } from "docx";
 
-export async function compile(
+export async function convert(
   markdownPath: string,
   docxPath: string,
 ) {
