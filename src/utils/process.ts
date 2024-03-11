@@ -2,10 +2,6 @@ import { execSync, spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
 import { basename } from "node:path";
 
-export function markdownPathToDocx(path: string) {
-  return `./output/${path.replace(/\.md$/g, "")}.docx`;
-}
-
 /**
  * Windows only utility to check if docx process exists.
  * @todo Add support for every platform.

@@ -11,10 +11,7 @@ import { Packer } from "docx";
 
 export async function compile(
   markdownPath: string,
-  docxPath: string = `./output/${markdownPath.replace(
-    /\.md$/g,
-    "",
-  )}.docx`,
+  docxPath: string,
 ) {
   const data = readFileSync(markdownPath),
     tree = processor.parse(data.toString()),
