@@ -1,7 +1,13 @@
 # Build folder
 dist
 output
+out
 
 # Dependency directories
 node_modules
+
+# Monorepo caching
 .turbo
+
+.DS_Store
+*.log*
