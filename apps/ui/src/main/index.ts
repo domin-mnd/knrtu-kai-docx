@@ -1,6 +1,7 @@
-import { join } from "path";
+import { join, parse } from "path";
 import { electronApp, is, optimizer } from "@electron-toolkit/utils";
-import { BrowserWindow, app, ipcMain, shell } from "electron";
+import { convert, startProcess, stopProcesses } from "converter";
+import { BrowserWindow, app, dialog, ipcMain, shell } from "electron";
 import icon from "../../resources/icon.png?asset";
 
 function createWindow(): void {
@@ -8,9 +9,18 @@ function createWindow(): void {
   const mainWindow = new BrowserWindow({
     width: 900,
     height: 670,
+    minHeight: 450,
+    minWidth: 300,
     show: false,
+    titleBarStyle: "hidden",
+    titleBarOverlay: {
+      color: "#0c0e10",
+      symbolColor: "#eef0f2",
+      height: 32,
+    },
     autoHideMenuBar: true,
-    ...(process.platform === "linux" ? { icon } : {}),
+    icon,
+    // ...(process.platform === "linux" ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, "../preload/index.js"),
       sandbox: false,
@@ -49,9 +59,29 @@ app.whenReady().then(() => {
     optimizer.watchWindowShortcuts(window);
   });
 
-  // IPC test
-  // biome-ignore lint/suspicious/noConsoleLog: will remove it later
-  ipcMain.on("ping", () => console.log("pong"));
+  ipcMain.on("convert", async (_event, input: string) => {
+    const inputPath = parse(input);
+
+    const path = await dialog.showSaveDialog({
+      title: "Сохранение отчёта",
+      defaultPath: join(inputPath.dir, `${inputPath.name}.docx`),
+      filters: [
+        {
+          name: "Документ",
+          extensions: ["docx"],
+        },
+      ],
+      properties: ["createDirectory"],
+    });
+
+    // Path was not provided
+    if (!path.filePath || path.canceled) return;
+    const output = path.filePath;
+
+    const runningProcessesExist = stopProcesses(output);
+    await convert(input, output, { cwd: inputPath.dir });
+    if (runningProcessesExist) startProcess(output);
+  });
 
   createWindow();
 

@@ -4,6 +4,7 @@
     "build": {
       "outputs": ["dist/**"]
     },
+    "build:linux": {},
     "dev": {
       "cache": false,
       "persistent": true

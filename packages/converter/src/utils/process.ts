@@ -26,9 +26,6 @@ export function processExists(path: string) {
 export function stopProcesses(path: string) {
   if (process.platform !== "win32") return false;
   if (!processExists(path)) return false;
-  console.info(
-    `Найден открытый файл "${path}" для перезаписи, закрываю...`,
-  );
   execSync(`taskkill /FI "WindowTitle eq ${basename(path)}*" /T /F`);
   return true;
 }
@@ -39,8 +36,6 @@ export function stopProcesses(path: string) {
  */
 export function startProcess(path: string) {
   if (process.platform !== "win32") return;
-  if (!existsSync(path))
-    return console.error(`Путь "${path}" не существует!`);
-  console.info(`Открытие файла "${path}"...`);
+  if (!existsSync(path)) return;
   execSync(`start ${path}`);
 }

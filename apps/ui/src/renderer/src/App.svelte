@@ -1,26 +1,31 @@
 <script lang="ts">
-  import Versions from "./components/Versions.svelte";
-  import electronLogo from "./assets/electron.svg";
-
-  const ipcHandle = (): void => window.electron.ipcRenderer.send("ping");
+  import "@fontsource-variable/inter";
+  import TitleBar from "./components/TitleBar.svelte";
+  import Card from "./components/Card.svelte";
+  import Title from "./components/Title.svelte";
+  import Input from "./components/Input.svelte";
+  import Submit from "./components/Submit.svelte";
+  import Background from "./components/Background.svelte";
 </script>
 
-<img alt="logo" class="logo" src={electronLogo} />
-<div class="creator">Powered by electron-vite</div>
-<div class="text">
-  Build an Electron app with
-  <span class="svelte">Svelte</span>
-  and
-  <span class="ts">TypeScript</span>
-</div>
-<p class="tip">Please try pressing <code>F12</code> to open the devTool</p>
-<div class="actions">
-  <div class="action">
-    <a href="https://electron-vite.org/" target="_blank" rel="noreferrer">Documentation</a>
-  </div>
-  <div class="action">
-    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions a11y-missing-attribute-->
-    <a target="_blank" rel="noreferrer" on:click={ipcHandle}>Send IPC</a>
-  </div>
-</div>
-<Versions />
+<main>
+  <TitleBar />
+  <Title />
+  <Background />
+  <Card>
+    <Input />
+    <Submit />
+  </Card>
+</main>
+
+<style lang="scss">
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+  }
+</style>

@@ -2,10 +2,13 @@
   "name": "converter",
   "version": "0.0.1",
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
     "start": "node dist/index.js",
-    "build": "esbuild ./src/ --bundle --platform=node --outfile=dist/index.js",
-    "dev": "pnpm build --watch=forever"
+    "build": "tsup src/index.ts --format=esm,cjs --dts",
+    "build-fast": "tsup src/index.ts --format=esm,cjs --no-dts --minify",
+    "dev": "pnpm build-fast --watch=forever"
   },
   "author": "domin-mnd",
   "engines": {
@@ -16,7 +19,7 @@
     "@types/node": "^20.11.20",
     "@vitest/coverage-v8": "^1.3.1",
     "cross-env": "^7.0.3",
-    "esbuild": "^0.20.1"
+    "tsup": "^8.0.2"
   },
   "dependencies": {
     "docx": "^8.5.0",
@@ -25,5 +28,10 @@
     "remark-parse": "^11.0.0",
     "unified": "^11.0.4",
     "yaml": "^2.4.1"
+  },
+  "tsup": {
+    "clean": true,
+    "platform": "node",
+    "noExternal": ["docx", "image-meta", "remark-frontmatter", "remark-parse", "unified", "yaml"]
   }
 }

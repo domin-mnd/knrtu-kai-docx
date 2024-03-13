@@ -1,3 +1,4 @@
+import { join } from "node:path";
 import { Document } from "@/components/document";
 import { Heading, HeadingLabel } from "@/components/heading";
 import { InlineCode, inlineCode } from "@/components/inlineCode";
@@ -67,11 +68,12 @@ function isOfType(
   return type.includes(elements.type);
 }
 
+let cwd: string = "";
 function parseImage(element: IImage): (ImageRun | TextRun)[] {
   if (!isOfType(element, ["image"])) return [];
   paragraphOptions = pictureParagraph;
   return [
-    Picture(element.url),
+    Picture(join(cwd, element.url)),
     PictureLabel(element.alt ?? "Изображение"),
   ];
 }
@@ -284,8 +286,19 @@ function parseOptions(options: PseudoOptions): TitlePageOptions {
   };
 }
 
+export interface ParseOptions {
+  cwd: string;
+}
+
 let titlePageOptions: PseudoOptions = {};
-export function parse(tree: Root): DOCXDocument {
+export function parse(
+  tree: Root,
+  options: ParseOptions,
+): DOCXDocument {
+  // Current working directory option validation
+  if (!options.cwd) throw "No CWD found";
+  cwd = options.cwd;
+
   const xmlElements = tree.children.flatMap(parseRoot);
   if (Object.keys(titlePageOptions).length)
     xmlElements.unshift(
