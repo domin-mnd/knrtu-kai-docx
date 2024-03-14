@@ -24,9 +24,7 @@ jobs:
         with:
           version: 8
 
-      # Install deps
       - run: pnpm install
-      # Build converter
       - run: pnpm build
 
       - name: Compile app
