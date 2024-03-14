@@ -1,5 +1,5 @@
 appId: pro.domin.docx
-productName: ui
+productName: Конвертёр отчётов
 directories:
   buildResources: build
 files:
@@ -13,6 +13,7 @@ asarUnpack:
   - resources/**
 win:
   executableName: knrtu-kai-docx
+  icon: resources/icon.png
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
@@ -41,4 +42,4 @@ appImage:
 npmRebuild: false
 publish:
   provider: generic
-  url: https://example.com/auto-updates
+  url: https://docx.domin.pro/auto-updates

@@ -12,6 +12,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+::selection {
+  color: $background;
+  background-color: $text;
+}
+
 ul {
   list-style: none;
 }
