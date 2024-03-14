@@ -24,7 +24,10 @@ jobs:
         with:
           version: 8
 
+      # Install deps
       - run: pnpm install
+      # Build converter
+      - run: pnpm build
 
       - name: Compile app
         uses: x6pnda/action-electron-compiler@v1.0.2
