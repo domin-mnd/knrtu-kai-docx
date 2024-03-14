@@ -20,7 +20,7 @@ jobs:
           node-version: 10
 
       - name: Compile app
-        uses: x6pnda/action-electron-compiler@v1.0.0
+        uses: x6pnda/action-electron-compiler@v1.0.2
         with:
           package_manager: PNPM
           package_root: apps/ui
