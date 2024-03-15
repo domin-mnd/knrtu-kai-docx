@@ -1,5 +1,6 @@
 appId: pro.domin.docx
-productName: Converter
+productName: Конвертёр
+artifactName: knrtu-kai-docx-${version}.${ext}
 directories:
   buildResources: build
 files:
@@ -15,7 +16,6 @@ win:
   executableName: knrtu-kai-docx
   icon: resources/icon.png
 nsis:
-  artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
@@ -27,14 +27,10 @@ mac:
     - NSDocumentsFolderUsageDescription: Application requests access to the user's Documents folder.
     - NSDownloadsFolderUsageDescription: Application requests access to the user's Downloads folder.
   notarize: false
-dmg:
-  artifactName: ${name}-${version}.${ext}
 linux:
   target:
     - AppImage
     - apk
   maintainer: domin.pro
   category: Utility
-appImage:
-  artifactName: ${name}-${version}.${ext}
 npmRebuild: false

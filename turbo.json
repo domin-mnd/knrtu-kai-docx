@@ -4,9 +4,15 @@
     "build": {
       "outputs": ["dist/**"]
     },
-    "build:linux": {},
-    "build:mac": {},
-    "build:win": {},
+    "build:linux": {
+      "outputs": ["dist/**"]
+    },
+    "build:mac": {
+      "outputs": ["dist/**"]
+    },
+    "build:win": {
+      "outputs": ["dist/**"]
+    },
     "dev": {
       "cache": false,
       "persistent": true
