@@ -31,6 +31,4 @@ jobs:
 
       - name: Compile app
         run: |
-          pnpm build:linux
-          pnpm build:mac
-          pnpm build:win
+          pnpm build:app
