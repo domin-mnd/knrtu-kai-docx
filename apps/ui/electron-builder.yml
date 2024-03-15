@@ -39,5 +39,4 @@ appImage:
   artifactName: ${name}-${version}.${ext}
 npmRebuild: false
 publish:
-  provider: generic
-  url: https://docx.domin.pro/auto-updates
+  provider: github
