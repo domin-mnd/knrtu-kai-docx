@@ -32,14 +32,14 @@ jobs:
       - name: Compile linux
         if: matrix.os == 'ubuntu-latest'
         run: |
-          pnpm build:app:linux --publish=always
+          pnpm build:app:linux
 
       - name: Compile mac
         if: matrix.os == 'macos-latest'
         run: |
-          pnpm build:app:mac --publish=always
+          pnpm build:app:mac
 
       - name: Compile windows
         if: matrix.os == 'windows-latest'
         run: |
-          pnpm build:app:win --publish=always
+          pnpm build:app:win
