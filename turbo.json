@@ -5,6 +5,8 @@
       "outputs": ["dist/**"]
     },
     "build:linux": {},
+    "build:mac": {},
+    "build:win": {},
     "dev": {
       "cache": false,
       "persistent": true

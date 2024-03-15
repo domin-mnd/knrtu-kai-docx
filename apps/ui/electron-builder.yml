@@ -32,8 +32,6 @@ dmg:
 linux:
   target:
     - AppImage
-    - snap
-    - deb
     - apk
   maintainer: domin.pro
   category: Utility
