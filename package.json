@@ -3,7 +3,10 @@
   "version": "0.0.2",
   "main": "dist/index.js",
   "scripts": {
-    "build:app": "turbo run build:linux --filter=ui && turbo run build:mac --filter=ui && turbo run build:win --filter=ui",
+    "build:app": "pnpm build:app:linux && pnpm build:app:mac && pnpm build:app:win",
+    "build:app:linux": "turbo run build:linux --filter=ui",
+    "build:app:mac": "turbo run build:mac --filter=ui",
+    "build:app:win": "turbo run build:win --filter=ui",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "biome lint . && biome format . && prettier --check .",
