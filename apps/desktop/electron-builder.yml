@@ -1,6 +1,6 @@
 appId: pro.domin.docx
 productName: Конвертёр отчётов
-artifactName: knrtu-kai-docx-${version}.${ext}
+artifactName: knrtu-kai-docx.${ext}
 directories:
   buildResources: build
 files:
@@ -20,7 +20,7 @@ win:
     - portable
 nsis:
   shortcutName: ${productName}
-  artifactName: knrtu-kai-docx-${version}-setup.${ext}
+  artifactName: knrtu-kai-docx-setup.${ext}
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
 mac:
