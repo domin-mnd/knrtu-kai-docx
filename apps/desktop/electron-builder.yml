@@ -15,6 +15,9 @@ asarUnpack:
 win:
   executableName: knrtu-kai-docx
   icon: resources/icon.png
+  target:
+    - nsis
+    - portable
 nsis:
   shortcutName: ${productName}
   uninstallDisplayName: ${productName}

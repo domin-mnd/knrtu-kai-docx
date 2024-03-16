@@ -4,9 +4,9 @@
   "main": "dist/index.js",
   "scripts": {
     "build:app": "pnpm build:app:linux && pnpm build:app:mac && pnpm build:app:win",
-    "build:app:linux": "turbo run build:linux --filter=ui --cache-dir=.turbo",
-    "build:app:mac": "turbo run build:mac --filter=ui --cache-dir=.turbo",
-    "build:app:win": "turbo run build:win --filter=ui --cache-dir=.turbo",
+    "build:app:linux": "turbo run build:linux --filter=desktop --cache-dir=.turbo",
+    "build:app:mac": "turbo run build:mac --filter=desktop --cache-dir=.turbo",
+    "build:app:win": "turbo run build:win --filter=desktop --cache-dir=.turbo",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "biome lint . && biome format . && prettier --check .",
