@@ -23,6 +23,8 @@ nsis:
   artifactName: knrtu-kai-docx-setup.${ext}
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
+portable:
+  artifactName: knrtu-kai-docx-portable.${ext}
 mac:
   executableName: knrtu-kai-docx
   entitlementsInherit: build/entitlements.mac.plist

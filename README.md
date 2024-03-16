@@ -18,19 +18,15 @@
 
 # Установка
 
-Установить исполняемый файл для Windows или Linux можно [через вкладку релизы](https://github.com/domin-mnd/knrtu-kai-docx/releases).
+Установить исполняемый файл для Windows, Linux или macOS можно [через вкладку релизы](https://github.com/domin-mnd/knrtu-kai-docx/releases).
 
-## Ручная установка
+## Установка на компьютер КАИ
 
-Для компиляции проекта необходимо установить [Node.js](https://nodejs.org/en).
+Для установки на компьютер КАИ используется Portable версия исполняемого файла. Она не имеет установщик. Найти сам исполняемый файл можно также [через вкладку релизы](https://github.com/domin-mnd/knrtu-kai-docx/releases) с названием `knrtu-kai-docx-portable.exe`.
 
-Далее необходимо склонировать репозиторий, установить pnpm и затем запустить build:
+## Установка на свой ноутбук/компьютер
 
-```sh
-$ git clone https://github.com/domin-mnd/knrtu-kai-docx .
-$ npm -g pnpm # Если не установлен pnpm
-$ pnpm build
-```
+Альтернативным вариантом установки программы может стать установщик [через ту же вкладку релизы](https://github.com/domin-mnd/knrtu-kai-docx/releases) с названием `knrtu-kai-docx-setup.exe`. Он установит программу в стандартную директорию для программ и создаст ярлык на рабочем столе.
 
 # Использование
 
