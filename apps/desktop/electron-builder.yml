@@ -23,6 +23,7 @@ nsis:
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
 mac:
+  productName: Converter
   entitlementsInherit: build/entitlements.mac.plist
   extendInfo:
     - NSCameraUsageDescription: Application requests access to the device's camera.
@@ -33,7 +34,8 @@ mac:
 linux:
   target:
     - AppImage
-    - apk
+    - snap
+    - deb
   maintainer: domin.pro
   category: Utility
 npmRebuild: false
