@@ -1,5 +1,5 @@
 appId: pro.domin.docx
-productName: Конвертёр отчётов
+productName: Converter
 artifactName: knrtu-kai-docx-${version}.${ext}
 directories:
   buildResources: build
@@ -23,7 +23,6 @@ nsis:
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
 mac:
-  executableName: knrtu-kai-docx
   entitlementsInherit: build/entitlements.mac.plist
   extendInfo:
     - NSCameraUsageDescription: Application requests access to the device's camera.
