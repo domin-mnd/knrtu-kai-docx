@@ -32,7 +32,6 @@ mac:
     - NSDownloadsFolderUsageDescription: Application requests access to the user's Downloads folder.
   notarize: false
 linux:
-  executableName: knrtu-kai-docx
   target:
     - AppImage
     - snap

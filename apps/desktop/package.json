@@ -19,7 +19,7 @@
     "build": "npm run typecheck && electron-vite build",
     "postinstall": "electron-builder install-app-deps",
     "build:unpack": "electron-builder --dir",
-    "build:win": "electron-builder --win --publish=always",
+    "build:win": "electron-builder --win",
     "build:mac": "electron-builder --mac --publish=always",
     "build:linux": "electron-builder --linux --publish=always"
   },
