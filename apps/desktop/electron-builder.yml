@@ -20,6 +20,7 @@ win:
     - portable
 nsis:
   shortcutName: ${productName}
+  artifactName: knrtu-kai-docx-${version}-setup.${ext}
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
 mac:
