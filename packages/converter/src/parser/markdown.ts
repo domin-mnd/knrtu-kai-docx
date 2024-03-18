@@ -73,7 +73,7 @@ function parseImage(element: IImage): (ImageRun | TextRun)[] {
   if (!isOfType(element, ["image"])) return [];
   paragraphOptions = pictureParagraph;
   return [
-    Picture(join(cwd, element.url)),
+    Picture(join(cwd, decodeURIComponent(element.url))),
     PictureLabel(element.alt ?? "Изображение"),
   ];
 }
