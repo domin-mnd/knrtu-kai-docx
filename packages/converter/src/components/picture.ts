@@ -56,6 +56,8 @@ export function getData(url: string): Data {
   };
 }
 
+export const resetCounter = () => (counter = 1);
+
 export const PictureLabel = (text: string) =>
   new TextRun({
     ...label,

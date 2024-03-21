@@ -9,6 +9,7 @@ import {
   Picture,
   PictureLabel,
   pictureParagraph,
+  resetCounter,
 } from "@/components/picture";
 import { Text } from "@/components/text";
 import {
@@ -309,6 +310,8 @@ export function parse(
 
   const student = parseFullname(titlePageOptions.студент),
     author = `${student.first} ${student.last}`;
+  // Reset image counter for next conversion
+  resetCounter();
   return Document(xmlElements, {
     creator: author,
     lastModifiedBy: author,
