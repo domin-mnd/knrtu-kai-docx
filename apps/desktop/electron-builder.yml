@@ -1,5 +1,5 @@
 appId: pro.domin.docx
-productName: Конвертёр отчётов
+productName: Конвертер отчётов
 artifactName: knrtu-kai-docx.${ext}
 directories:
   buildResources: build
