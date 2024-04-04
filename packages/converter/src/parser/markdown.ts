@@ -260,6 +260,7 @@ function parseRoot(element: RootContent) {
 
 interface PseudoOptions {
   номер?: number;
+  тип?: string;
   дисциплина?: string;
   тема?: string;
   группа?: number;
@@ -279,6 +280,7 @@ function parseFullname(name: string): FullName {
 function parseOptions(options: PseudoOptions): TitlePageOptions {
   return {
     number: options?.номер ?? 1,
+    type: options?.тип ?? "Лабораторная работа",
     subject: options?.дисциплина ?? "Неизвестная дисциплина",
     title: options?.тема ?? "Неизвестная тема",
     group: options?.группа ?? 4233,

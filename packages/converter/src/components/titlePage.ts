@@ -11,6 +11,7 @@ export interface FullName {
 
 export interface TitlePageOptions {
   number: number;
+  type: string;
   subject: string;
   title: string;
   group: number;
@@ -40,7 +41,7 @@ export function LabTitlePage(options: TitlePageOptions) {
 
 
 
-ЛАБОРАТОРНАЯ РАБОТА №${options.number}
+${options.type.toLocaleUpperCase()} №${options.number}
 по дисциплине
 
 ${options.subject}
